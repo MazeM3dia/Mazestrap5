@@ -1,0 +1,393 @@
+@import "./bootstrap5/scss/functions";
+
+// Basic Colors
+$body-bg: #212121;
+$body-color: #FAFAFA;
+$primary: #ffd300; //Primary color
+$primary-80: rgba(255, 213, 0, 0.8); //Primary color 80
+$secondary: #6c757d; // Secondary color
+$dark: #121212; //for navbar & footer
+$mazem3dia-gray: #313131 !default; //Used for cards (BS card)
+
+//New Muted Color
+$muted-text-new: rgba(250, 250, 250, 0.7);
+
+// Custom Colors for Social Media Base Color
+$youtube: #FF0000; //Youtube
+$facebook: #4267B2; //facebook
+$twitter: #1DA1F2; //Twitter
+$tumblr: #35465C; //Tumblr
+$instagram: #E1306C; //Instagram
+$vk: #4C75A3; //VK
+$mastodon: #6364FF; //Mastodon
+$threads: #000000; //Threads
+
+// Fall Guys Round Color Labels
+$fg-race: #05e06d;
+$fg-survival: #b61bd2;
+$fg-hunt: #3065b8;
+$fg-team: #f55303;
+$fg-logic: #009999;
+$fg-final: #f9c503;
+$fg-invisibeans: #000000;
+$fg-code: $primary;
+
+// Border Sizes
+$border-width: .15rem;
+$border-radius: 1rem;
+$border-radius-sm: 1rem;
+$border-radius-lg: 1rem;
+$border-color: $body-color;
+
+// Form Input Checks
+$form-check-input-border: .1rem solid rgba($body-color, .25);
+$form-select-indicator-color: $body-color;
+$form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$body-bg}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
+$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$body-bg}'/></svg>");
+
+@import "./bootstrap5/scss/variables";
+
+// Merge MazeM3dia Colors
+$mazem3dia-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "dark": $dark,
+    "mazem3dia-gray": $mazem3dia-gray,
+    "muted-new": $muted-text-new,
+
+    // Socials
+    "youtube": $youtube,
+    "facebook": $facebook,
+    "twitter": $twitter,
+    "tumblr": $tumblr,
+    "instagram": $instagram,
+    "vk": $vk,
+    "mastodon": $mastodon,
+    "threads": $threads,
+
+    //FG Rounds
+    "fg-race": $fg-race,
+    "fg-survival": $fg-survival,
+    "fg-hunt": $fg-hunt,
+    "fg-team": $fg-team,
+    "fg-logic": $fg-logic,
+    "fg-final": $fg-final,
+    "fg-invisibeans": $fg-invisibeans,
+    "fg-code": $fg-code,
+);
+$theme-colors: map-merge($theme-colors, $mazem3dia-colors);
+
+// Display Font Sizes
+$display-font-sizes: map-merge($display-font-sizes, 
+(   7: 2rem,
+    8: 1.5rem,
+    9: 1rem,
+    10: 0.5rem,
+));
+
+//List Inline Item
+$list-inline-padding: 1rem;
+
+//Negative Spacers (Valid for margin)
+$spacers: map-merge($spacers, (
+  n1: $spacer * -.25,
+  n2: $spacer * -.5,
+  n3: $spacer * -.75,
+  n4: $spacer * -1,
+  n5: $spacer * -1.25,
+  n6: $spacer * -1.5,
+  n7: $spacer * -1.75,
+  n8: $spacer * -2,
+
+  //Positive Values Extension
+  2a: $spacer * .75,
+  3a: $spacer * 1.25,
+  4a: $spacer * 1.75,
+  4b: $spacer * 2,
+  4c: $spacer * 2.25,
+  4d: $spacer * 2.5,
+  4e: $spacer * 2.75,
+));
+
+// Heading Font Sizes
+$h7-font-size: $font-size-base * .75;
+$h8-font-size: $font-size-base * .5;
+$h9-font-size: $font-size-base * .25;
+$font-sizes: map-merge($font-sizes, (
+    7: $h7-font-size,
+    8: $h8-font-size,
+    9: $h9-font-size,
+));
+
+// Font Changes
+$headings-font-family: 'Montserrat', sans-serif;
+$font-family-base: 'Asap', sans-serif;
+
+// Override Table Variants
+$table-variants:  map-merge($table-variants, (
+  "primary":    shift-color($primary, $table-bg-scale),
+  "secondary":  shift-color($secondary, $table-bg-scale),
+  "success":    shift-color($success, $table-bg-scale),
+  "info":       shift-color($info, $table-bg-scale),
+  "warning":    shift-color($warning, $table-bg-scale),
+  "danger":     shift-color($danger, $table-bg-scale),
+  "mazem3dia-gray":     shift-color($mazem3dia-gray, $table-bg-scale),
+  "light":      $light,
+  "dark":       $dark,
+
+));
+
+// Carousel
+$carousel-control-width: 10%;
+$carousel-control-icon-width: 3rem;
+$carousel-control-prev-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' class='bi bi-caret-left-fill' fill='#{$body-color}'><path d='m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z'/></svg>");
+$carousel-control-next-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' class='bi bi-caret-right-fill' fill='#{$body-color}'><path d='m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z'/></svg>");
+
+// Form Input Color Overrides
+$input-bg: $body-bg;
+$input-disabled-color: $muted-text-new;
+$input-disabled-bg: #4D4D4D;
+$input-disabled-border-color: null;
+$form-text-color: $muted-text-new;
+$form-file-button-bg: #4D4D4D;
+$form-file-button-hover-bg: shade-color($form-file-button-bg, 5%);
+$input-placeholder-color: $muted-text-new;
+$form-select-disabled-color: $muted-text-new;
+$form-select-disabled-bg: #4D4D4D;
+// Button variables
+$btn-font-weight: 600;
+
+// Breadcrumb Variables
+$breadcrumb-divider-color: $muted-text-new;
+$breadcrumb-active-color: $muted-text-new;
+
+//Pagination
+$pagination-bg: $body-bg;
+$pagination-focus-bg: #3C3C3C;
+$pagination-hover-bg: #3C3C3C;
+$pagination-active-color: $body-bg;
+$pagination-disabled-color: $muted-text-new;
+$pagination-disabled-bg:#4D4D4D;
+
+//Progress
+$progress-bg: #3C3C3C;
+$progress-bar-color: $body-bg;
+
+//Navtabs
+$nav-tabs-link-active-color: $body-color;
+$nav-link-disabled-color: $muted-text-new;
+@import "./bootstrap5/scss/bootstrap";
+
+// Custom Styles
+@media (min-width: 768px) {
+    html {
+        font-size: 17px;
+    }
+}
+// Spinner
+#spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: $dark;
+}
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: $primary;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+}
+@keyframes lds-facebook {
+    0% {
+        top: 8px;
+        height: 64px;
+    }
+    50%,100% {
+        top: 24px;
+        height: 32px;
+    }
+}
+// Navbar
+.navbar-brand {
+    margin-left: 0;
+    margin-right: 0;
+}
+.navbar .navbar-nav .nav-link {
+    color: $body-color;
+}
+.navbar .navbar-nav .nav-link.active {
+    color: $primary;
+}
+@media (max-width: 991.98px) {
+    /* For Smaller Screens */
+    .navbar-brand {
+        margin-right: -45px;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navbar-toggler {
+        margin-left: auto;
+    }
+    .navbar-brand img {
+        max-width: 170px;
+    }
+    .navbar-nav>.nav-item>.nav-link {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .navbar-nav>.nav-item>.nav-link {
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        font-weight: 600;
+        color: $body-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        z-index: 30;
+    }
+    .navbar-nav>.nav-item>.nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0px;
+        left: 0;
+        background-color: $primary;
+        transition: all 0.25s ease-in-out;
+    }
+    .navbar-nav>.nav-item>.nav-link:hover:after {
+        width: 100%;
+    }
+    .navbar-nav>.nav-item>a.nav-link:hover {
+        color: $primary;
+    }
+}
+@media (min-width: 992px) {
+    /* For Larger Screens */
+    .navbar-nav>.nav-item>.nav-link {
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+        font-weight: 600;
+        color: $body-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+    }
+    .navbar-nav>.nav-item>.nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0px;
+        left: 0;
+        background-color: $primary;
+        transition: all 0.25s ease-in-out;
+    }
+    .navbar-nav>.nav-item>.nav-link:hover:after {
+        width: 100%;
+    }
+
+    .navbar-nav>.nav-item>a.nav-link:hover {
+        color: $primary;
+    }
+    .navbar {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .navbar-brand img {
+        max-width: 200px;
+    }
+    .navbar .container-fluid {
+        flex-direction: column;
+    }
+    .navbar .navbar-nav {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+// Footer
+.footer-logo-image img {
+    width: 150px;
+    height: auto;
+}
+// Round Badges
+.round-badge {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.img-hover-zoom--zoom-n-rotate img {
+    transition: transform .3s ease-in-out;
+}
+.img-hover-zoom--zoom-n-rotate:hover img {
+    transform: scale(2) rotate(25deg);
+}
+//Link Hover
+a.link-hov-effect {
+    color: $primary;
+    position: relative;
+    text-decoration: none;
+}
+a.link-hov-effect::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background-color: $primary;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+a.link-hov-effect:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+// Jumbotron
+.jumbotron-page-title {
+    background-size: cover;
+    background-position: center;
+}
+.jumbotron-heading {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 3px;
+}
+.jumbotron-body {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+//Iframe
+.external-iframe {
+    border-radius: $border-radius!important;
+    border-width: $border-width!important;
+    border-style: solid !important;
+    border-color: $body-color!important;
+    overflow:hidden;
+}
